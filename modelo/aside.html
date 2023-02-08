@@ -1,0 +1,63 @@
+<aside class="col-md-4 blog-sidebar mt-5">
+    <div class="p-3 mb-3 bg-light rounded">
+        <h4 class="font-italic">Sobre</h4>
+        <p class="mb-0">As novidades do cenário tech não param de surgir! Assim, o conhecimento sobre as novas tendências ajuda a ficar sempre por dentro de tudo que há de novo. Sendo assim, o blog Help Dev é um guia para o mundo tecnologico e um auxilio para quem quer se tornar um desenvolvedor. </p>
+    </div>
+
+    <div class="p-3">
+        <h4 class="font-italic">Arquivos</h4>
+        <ul id="lista" class="list-unstyled mb-0">
+
+        </ul>
+    </div>
+
+    <div class="p-3">
+        <h4 class="font-italic" >Onde nos encontrar, por aí:</h4>
+        <ol class="list-unstyled">
+            <li><a href="#" style="color: black">GitHub</a></li>
+            <li><a href="#" style="color: black">Twitter</a></li>
+            <li><a href="#" style="color: black"> Facebook</a></li>
+        </ol>
+    </div>
+</aside>
+
+<script>
+
+const mesAtual = new Date(Date.now());
+
+const nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+];
+
+let meses = [];
+
+for(let i = 0; i < 10; i++){
+
+let mes =  nomesMeses[new Date(mesAtual.setMonth(mesAtual.getMonth() -1)).getMonth()]
+let ano = new Date(mesAtual.setMonth(mesAtual.getMonth())).getFullYear()
+
+meses.push(`${mes} de ${ano}`);
+}
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+
+
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i]));
+        item.innerHTML = '<a href="#" style="color: black">' + array[i] + '</a>';
+        console.log(item);
+        // Add it to the list:
+        list.appendChild(item);
+    }
+
+    // Finally, return the constructed list:
+    return list;
+}
+document.getElementById('lista').appendChild(makeUL(meses))
+</script>
